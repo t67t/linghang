@@ -1,0 +1,88 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="referrer" content="never">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>及时转发避免和谐</title>
+		<link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.9.23/skins/default/aliplayer-min.css" />
+		<script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.9.23/aliplayer-min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="https://player.alicdn.com/aliplayer/presentation/js/aliplayercomponents.min.js"></script>
+		<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.5/css/layui.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/layui/2.6.8/layui.min.js"></script>
+		<script src="https://s3.pstatp.com/cdn/expire-1-M/jquery/3.3.1/jquery.min.js"></script>
+
+		<style>
+			body, html { 
+				width:100%;
+	height:100%;
+	background:#000;
+	padding:0;
+	margin:0;
+	overflow-x:hidden;
+	overflow-y:hidden }
+			* {
+				margin:0;
+	border:0;
+	padding:0;
+	text-decoration:none }
+		</style>
+	
+	</head>
+	<body>
+		<div class="prism-player" id="player-con"></div>
+
+
+ 
+<center><input type="button" id="butName" value ="更 多 资 源 点 我 观 看" onclick=javascrtpt:jump() style="
+                              width: 90%;/*设置按钮宽度*/
+                        height: 50px;/*设置按钮高度*/
+                        color:white;/*字体颜色*/
+                        background-color:cornflowerblue;/*按钮背景颜色*/
+                        border-radius: 5px;/*让按钮变得圆滑一点*/
+                        border- 0;/*消去按钮丑的边框*/
+                        margin: 0;
+                        outline: none;/*取消轮廓*/
+                        font-family: KaiTi;/*字体设置为楷体*/
+                        font-size: 17px;/*设置字体大小*/
+                        text-align: center;/*字体居中*/
+                        cursor: pointer;/*设置鼠标箭头手势*/"/>
+</center>
+	</body>
+	<script>
+		function 获取参数(name) {
+				              var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+				              var r = window.location.search.substr(1).match(reg);
+				              if (r != null) return decodeURI(r[2]); return null;
+				            } 
+							
+							  if(获取参数('url').indexOf("http") == -1) {var url =atob(获取参数('url'));}else{var url =获取参数('url');}
+							  
+							   $('title').html(获取参数('title'));
+							  $("#butName")[0].value=获取参数('butName');
+							  se = setTimeout(function () {
+							   layer.open({
+							                  title: 获取参数('title'),   // 关闭标题栏
+							                  content:获取参数('biaoti'),
+							                  btn: ['确认','取消'],
+							                  yes: function (index, layero) {
+							                      window.location.href = 获取参数('lianjie');  // 跳转到指定链接
+							                  }
+							              });
+							   }, 获取参数('miao')*1000);
+	
+		
+	var player = new Aliplayer({ /* 创建一个新的 Aliplayer 对象 */
+			id: "player-con", // 指定播放器容器的 id
+			source: url, // 指定播放地址
+			width: "100%", // 指定播放器宽度
+			height: "91%", // 指定播放器高度
+			cover: '.', // 设置封面图片
+			autoplay: false, // 设置自动播放为 false
+			preload: false, // 设置预加载为 false
+			isLive: false // 设置是否为直播为 false
+		}, function(player) {}); // 创建回调函数
+		
+		function jump(){window.location.href=获取参数('lianjie');}
+	</script>
+</html>
